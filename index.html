@@ -4,122 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servinordel - Servicios a Domicilio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        header {
-            background-color: #ff6600;
-            color: #ffffff;
-            padding: 20px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav {
-            background-color: #333333;
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: #ffffff;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #ff6600;
-            color: white;
-        }
-        .container {
-            padding: 20px;
-        }
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-        }
-        .service {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            flex-basis: 30%;
-            box-sizing: border-box;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            text-align: center;
-        }
-        .service img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .service:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .service h3 {
-            margin-top: 10px;
-        }
-        .button {
-            background-color: #ff6600;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            display: inline-block;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #e65c00;
-        }
-        footer {
-            background-color: #333333;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background-color: #ff6600;
-            color: white;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .back-to-top:hover {
-            background-color: #e65c00;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="fade-in">
@@ -175,23 +60,23 @@
             </div>
         </div>
     </div>
-    <div class="container fade-in" id="pintura">
+    <div class="container fade-in hidden" id="pintura">
         <h2>Pintura</h2>
         <p>Descripción detallada sobre los servicios de pintura que ofrecemos.</p>
     </div>
-    <div class="container fade-in" id="arreglos">
+    <div class="container fade-in hidden" id="arreglos">
         <h2>Arreglos</h2>
         <p>Descripción detallada sobre los servicios de arreglos que ofrecemos.</p>
     </div>
-    <div class="container fade-in" id="albanileria">
+    <div class="container fade-in hidden" id="albanileria">
         <h2>Albañilería</h2>
         <p>Descripción detallada sobre los servicios de albañilería que ofrecemos.</p>
     </div>
-    <div class="container fade-in" id="plomeria">
+    <div class="container fade-in hidden" id="plomeria">
         <h2>Plomería</h2>
         <p>Descripción detallada sobre los servicios de plomería que ofrecemos.</p>
     </div>
-    <div class="container fade-in" id="electricidad">
+    <div class="container fade-in hidden" id="electricidad">
         <h2>Electricidad</h2>
         <p>Descripción detallada sobre los servicios de electricidad que ofrecemos.</p>
     </div>
@@ -205,36 +90,6 @@
         <p>&copy; 2024 Servinordel. Todos los derechos reservados.</p>
     </footer>
     <div class="back-to-top" onclick="scrollToTop()">↑</div>
-    <script>
-        window.onscroll = function() {scrollFunction()};
-
-        function scrollFunction() {
-            var backToTopButton = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                backToTopButton.style.display = "block";
-            } else {
-                backToTopButton.style.display = "none";
-            }
-        }
-
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var elements = document.querySelectorAll('.fade-in');
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            elements.forEach(function(element) {
-                observer.observe(element);
-            });
-        });
-    </script>
+    <script src="scripts.js"></script>
 </body>
 </html>
