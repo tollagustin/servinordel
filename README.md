@@ -1,5 +1,3 @@
-# servinordel
-Página web de Servinordel
 <!DOCTYPE html>
 <html lang="es">
 <head>
