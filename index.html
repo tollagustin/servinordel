@@ -12,16 +12,23 @@
             background-color: #ffffff;
             color: #333333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
         header {
             background-color: #ff6600;
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav {
             background-color: #333333;
             overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav a {
             float: left;
@@ -30,6 +37,7 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
         nav a:hover {
             background-color: #ff6600;
@@ -42,28 +50,30 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            gap: 20px;
         }
         .service {
             background-color: #f4f4f4;
             border: 1px solid #ddd;
             border-radius: 5px;
-            margin: 10px;
             padding: 20px;
             flex-basis: 30%;
             box-sizing: border-box;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            text-align: center;
+        }
+        .service img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
         }
         .service:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        footer {
-            background-color: #333333;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        .service h3 {
+            margin-top: 10px;
         }
         .button {
             background-color: #ff6600;
@@ -78,6 +88,15 @@
         .button:hover {
             background-color: #e65c00;
         }
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
         .back-to-top {
             position: fixed;
             bottom: 20px;
@@ -88,55 +107,101 @@
             padding: 10px;
             border-radius: 50%;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-to-top:hover {
+            background-color: #e65c00;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="fade-in">
         <h1>Servinordel</h1>
         <p>Atención rápida y eficiente. Soluciones confiables y duraderas.</p>
     </header>
-    <nav>
+    <nav class="fade-in">
         <a href="#about">Nosotros</a>
         <a href="#services">Servicios</a>
         <a href="#contact">Contacto</a>
     </nav>
-    <div class="container" id="about">
+    <div class="container fade-in" id="about">
         <h2>Sobre Nosotros</h2>
         <p>En Servinordel, ofrecemos una amplia gama de servicios a domicilio en Buenos Aires, Tigre y Nordelta. Nuestro equipo de profesionales está dedicado a brindar soluciones rápidas, eficientes y de alta calidad para todas sus necesidades de pintura, arreglos, albañilería, plomería y electricidad.</p>
     </div>
-    <div class="container" id="services">
+    <div class="container fade-in" id="services">
         <h2>Servicios</h2>
         <div class="services">
             <div class="service">
-                <h3>Pintura</h3>
+                <a href="#pintura">
+                    <img src="https://via.placeholder.com/300x200.png?text=Pintura" alt="Pintura">
+                    <h3>Pintura</h3>
+                </a>
                 <p>Servicios de pintura interior y exterior para todo tipo de propiedades.</p>
             </div>
             <div class="service">
-                <h3>Arreglos</h3>
+                <a href="#arreglos">
+                    <img src="https://via.placeholder.com/300x200.png?text=Arreglos" alt="Arreglos">
+                    <h3>Arreglos</h3>
+                </a>
                 <p>Reparaciones y mantenimiento general para mantener su hogar en perfecto estado.</p>
             </div>
             <div class="service">
-                <h3>Albañilería</h3>
+                <a href="#albanileria">
+                    <img src="https://via.placeholder.com/300x200.png?text=Albañilería" alt="Albañilería">
+                    <h3>Albañilería</h3>
+                </a>
                 <p>Trabajos de albañilería de alta calidad para proyectos grandes y pequeños.</p>
             </div>
             <div class="service">
-                <h3>Plomería</h3>
+                <a href="#plomeria">
+                    <img src="https://via.placeholder.com/300x200.png?text=Plomería" alt="Plomería">
+                    <h3>Plomería</h3>
+                </a>
                 <p>Soluciones de plomería confiables para cualquier problema de agua o desagüe.</p>
             </div>
             <div class="service">
-                <h3>Electricidad</h3>
+                <a href="#electricidad">
+                    <img src="https://via.placeholder.com/300x200.png?text=Electricidad" alt="Electricidad">
+                    <h3>Electricidad</h3>
+                </a>
                 <p>Servicios eléctricos seguros y eficientes para su hogar o negocio.</p>
             </div>
         </div>
     </div>
-    <div class="container" id="contact">
+    <div class="container fade-in" id="pintura">
+        <h2>Pintura</h2>
+        <p>Descripción detallada sobre los servicios de pintura que ofrecemos.</p>
+    </div>
+    <div class="container fade-in" id="arreglos">
+        <h2>Arreglos</h2>
+        <p>Descripción detallada sobre los servicios de arreglos que ofrecemos.</p>
+    </div>
+    <div class="container fade-in" id="albanileria">
+        <h2>Albañilería</h2>
+        <p>Descripción detallada sobre los servicios de albañilería que ofrecemos.</p>
+    </div>
+    <div class="container fade-in" id="plomeria">
+        <h2>Plomería</h2>
+        <p>Descripción detallada sobre los servicios de plomería que ofrecemos.</p>
+    </div>
+    <div class="container fade-in" id="electricidad">
+        <h2>Electricidad</h2>
+        <p>Descripción detallada sobre los servicios de electricidad que ofrecemos.</p>
+    </div>
+    <div class="container fade-in" id="contact">
         <h2>Contacto</h2>
         <p>Teléfono: (011) 3246-3318</p>
         <p>Dirección: Buenos Aires, Tigre, Nordelta</p>
         <p>Correo Electrónico: <a href="mailto:servinordel@gmail.com">servinordel@gmail.com</a></p>
     </div>
-    <footer>
+    <footer class="fade-in">
         <p>&copy; 2024 Servinordel. Todos los derechos reservados.</p>
     </footer>
     <div class="back-to-top" onclick="scrollToTop()">↑</div>
@@ -156,6 +221,20 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = document.querySelectorAll('.fade-in');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(function(element) {
+                observer.observe(element);
+            });
+        });
     </script>
 </body>
 </html>
